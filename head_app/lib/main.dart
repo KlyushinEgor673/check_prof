@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:head_app/screens/backet.dart';
 import 'package:head_app/screens/catalog.dart';
 import 'package:head_app/screens/entrance.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,6 +57,8 @@ Future<void> main() async {
                   );
                 case '/head':
                   return PageRouteBuilder(pageBuilder: (_, __, ___) => Head());
+                case '/backet':
+                  return PageRouteBuilder(pageBuilder: (_, __, ___) => Backet());
               }
             },
           );

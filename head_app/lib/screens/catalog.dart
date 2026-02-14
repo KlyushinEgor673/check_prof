@@ -24,6 +24,7 @@ class _CatalogState extends State<Catalog> {
   List _productsInBacketId = [];
 
   Future<void> _openSheet(String productId) async {
+    InfoProductResponse response = await _shopData.getInfoProduct(productId);
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -39,22 +40,115 @@ class _CatalogState extends State<Catalog> {
               topLeft: Radius.circular(24),
             ),
           ),
-          child: Stack(),
+          child: Stack(
+            children: [
+              Positioned(
+                top: orientation == Orientation.portrait ? 24.h : 24,
+                left: orientation == Orientation.portrait ? 20.w : 20,
+                child: SizedBox(
+                  width: orientation == Orientation.portrait ? 267.w : 267,
+                  child: Text(
+                    response.title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: orientation == Orientation.portrait
+                          ? 20.sp
+                          : 20,
+                      height: 28 / 20,
+                      letterSpacing: 0.38,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: orientation == Orientation.portrait ? 100.h : 100,
+                left: orientation == Orientation.portrait ? 20.w : 20,
+                child: Text(
+                  'Описание',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: orientation == Orientation.portrait ? 16.sp : 16,
+                    height: 20 / 16,
+                    letterSpacing: -0.32,
+                    color: Color.fromRGBO(147, 147, 150, 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: orientation == Orientation.portrait ? 128.h : 128,
+                left: orientation == Orientation.portrait ? 20.w : 20,
+                right: orientation == Orientation.portrait ? 20.w : 20,
+                child: Text(
+                  response.description,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: orientation == Orientation.portrait ? 15.sp : 15,
+                    letterSpacing: 0,
+                    height: 20 / 15,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: orientation == Orientation.portrait ? 139.h : 139,
+                left: orientation == Orientation.portrait ? 20.w : 20,
+                child: Text(
+                  'Примерный расход:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: orientation == Orientation.portrait ? 14.sp : 14,
+                    height: 20 / 14,
+                    letterSpacing: 0,
+                    color: Color.fromRGBO(147, 147, 150, 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: orientation == Orientation.portrait ? 40.h : 40,
+                child: Padding(
+                  padding: EdgeInsetsGeometry.symmetric(
+                    horizontal: orientation == Orientation.portrait ? 20.w : 20,
+                  ),
+                  child: BigButton(
+                    color: BigButtonColor.blue,
+                    onTap: () async {
+                      AddBacketResponse request = AddBacketResponse(
+                        userId: _userId!,
+                        productId: productId,
+                        count: 1,
+                      );
+                      await _backetData.addProduct(request: request);
+                      await _update();
+                      Navigator.pop(context);
+                    },
+                    text: 'Далее',
+                  ),
+                ),
+              ),
+            ],
+          ),
         );
       },
     );
   }
 
-  Future<void> _init() async {
+  String? _userId;
+
+  Future<void> _update() async {
+    print('UPDATE');
     final response = await _shopData.getProducts(filter: '');
-    String? userId = await storage.read(key: 'userId');
-    final response2 = await _backetData.getAll(userId: userId!);
+    final response2 = await _backetData.getAll(userId: _userId!);
+    _productsInBacketId.clear();
     for (ProductInBacket product in response2) {
       _productsInBacketId.add(product.productId);
     }
     setState(() {
       _products = response.items;
     });
+  }
+
+  Future<void> _init() async {
+    _userId = await storage.read(key: 'userId');
+    await _update();
   }
 
   late Client _client;
@@ -199,7 +293,27 @@ class _CatalogState extends State<Catalog> {
                               ),
                               onTap:
                                   _productsInBacketId.contains(_products[i].id)
-                                  ? () {}
+                                  ? () async {
+                                      String backetId = '';
+                                      final response = await _backetData.getAll(userId: _userId!);
+                                      for (ProductInBacket product in response) {
+                                        if (product.productId == _products[i].id){
+                                          backetId = product.id;
+                                          break;
+                                        }
+                                      }
+                                      final request = ChangeBacketRequest(
+                                        userId: _userId!,
+                                        productId: _products[i].id,
+                                        count: 0,
+                                        backetId: backetId,
+                                      );
+                                      await _backetData.changeProduct(
+                                        request: request,
+                                      );
+                                      await _update();
+                                      print(_productsInBacketId);
+                                    }
                                   : () async {
                                       _openSheet(_products[i].id);
                                     },
