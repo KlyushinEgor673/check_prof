@@ -49,3 +49,17 @@ Map<String, dynamic> _$BacketResponseToJson(_BacketResponse instance) =>
       'totalItems': instance.totalItems,
       'totalPages': instance.totalPages,
     };
+
+_AddBacketResponse _$AddBacketResponseFromJson(Map<String, dynamic> json) =>
+    _AddBacketResponse(
+      userId: json['user_id'] as String,
+      productId: json['product_id'] as String,
+      count: (json['count'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$AddBacketResponseToJson(_AddBacketResponse instance) =>
+    <String, dynamic>{
+      'user_id': instance.userId,
+      'product_id': instance.productId,
+      'count': instance.count,
+    };

@@ -61,18 +61,22 @@ abstract class NewsResponse with _$NewsResponse {
       _$NewsResponseFromJson(json);
 }
 
-// abstract class InfoProductResponse with _$InfoProductResponse {
-//   factory InfoProductResponse({
-//     required String approximateCost,
-//     required String collectionId,
-//     required String collectionName,
-//     required String created,
-//     required String description,
-//     required String id,
-//     required double price,
-//     required String title,
-//     required String type,
-//     required String typeCloses,
-//     required String updated
-// }) = _InfoProductResponse;
-// }
+@freezed
+abstract class InfoProductResponse with _$InfoProductResponse {
+  factory InfoProductResponse({
+    required String approximateCost,
+    required String collectionId,
+    required String collectionName,
+    required String created,
+    required String description,
+    required String id,
+    required double price,
+    required String title,
+    required String type,
+    required String typeCloses,
+    required String updated,
+  }) = _InfoProductResponse;
+
+  factory InfoProductResponse.fromJson(Map<String, dynamic> json) =>
+      _$InfoProductResponseFromJson(json);
+}

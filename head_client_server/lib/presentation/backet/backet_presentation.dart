@@ -34,3 +34,29 @@ abstract class BacketResponse with _$BacketResponse {
   factory BacketResponse.fromJson(Map<String, dynamic> json) =>
       _$BacketResponseFromJson(json);
 }
+
+@freezed
+abstract class AddBacketResponse with _$AddBacketResponse {
+  factory AddBacketResponse({
+    @JsonKey(name: 'user_id') required String userId,
+    @JsonKey(name: 'product_id') required String productId,
+    required int count,
+  }) = _AddBacketResponse;
+
+  factory AddBacketResponse.fromJson(Map<String, dynamic> json) =>
+      _$AddBacketResponseFromJson(json);
+}
+
+class ChangeBacketRequest{
+  String userId;
+  String productId;
+  int count;
+  String backetId;
+
+  ChangeBacketRequest({
+    required this.userId,
+    required this.productId,
+    required this.count,
+    required this.backetId
+  });
+}

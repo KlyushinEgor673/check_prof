@@ -18,4 +18,9 @@ void main() {
     final response = await backetData.getAll(userId: '88hit6plsaady4y');
     print('Корзина получена: $response');
   });
+
+  // test('add product', () async{
+  //
+  //   await backetData.addProduct(request: )
+  // });
 }

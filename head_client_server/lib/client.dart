@@ -47,4 +47,17 @@ class Client {
     final response = await _dio.get(path, queryParameters: queryParameters);
     return response.data as T;
   }
+
+  Future<T> patch<T>({
+    required String path,
+    required dynamic data,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    final response = await _dio.patch(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+    );
+    return response.data as T;
+  }
 }

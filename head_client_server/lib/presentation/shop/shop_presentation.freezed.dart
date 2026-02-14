@@ -1126,4 +1126,297 @@ as int,
 
 }
 
+
+/// @nodoc
+mixin _$InfoProductResponse {
+
+ String get approximateCost; String get collectionId; String get collectionName; String get created; String get description; String get id; double get price; String get title; String get type; String get typeCloses; String get updated;
+/// Create a copy of InfoProductResponse
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$InfoProductResponseCopyWith<InfoProductResponse> get copyWith => _$InfoProductResponseCopyWithImpl<InfoProductResponse>(this as InfoProductResponse, _$identity);
+
+  /// Serializes this InfoProductResponse to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InfoProductResponse&&(identical(other.approximateCost, approximateCost) || other.approximateCost == approximateCost)&&(identical(other.collectionId, collectionId) || other.collectionId == collectionId)&&(identical(other.collectionName, collectionName) || other.collectionName == collectionName)&&(identical(other.created, created) || other.created == created)&&(identical(other.description, description) || other.description == description)&&(identical(other.id, id) || other.id == id)&&(identical(other.price, price) || other.price == price)&&(identical(other.title, title) || other.title == title)&&(identical(other.type, type) || other.type == type)&&(identical(other.typeCloses, typeCloses) || other.typeCloses == typeCloses)&&(identical(other.updated, updated) || other.updated == updated));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,approximateCost,collectionId,collectionName,created,description,id,price,title,type,typeCloses,updated);
+
+@override
+String toString() {
+  return 'InfoProductResponse(approximateCost: $approximateCost, collectionId: $collectionId, collectionName: $collectionName, created: $created, description: $description, id: $id, price: $price, title: $title, type: $type, typeCloses: $typeCloses, updated: $updated)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $InfoProductResponseCopyWith<$Res>  {
+  factory $InfoProductResponseCopyWith(InfoProductResponse value, $Res Function(InfoProductResponse) _then) = _$InfoProductResponseCopyWithImpl;
+@useResult
+$Res call({
+ String approximateCost, String collectionId, String collectionName, String created, String description, String id, double price, String title, String type, String typeCloses, String updated
+});
+
+
+
+
+}
+/// @nodoc
+class _$InfoProductResponseCopyWithImpl<$Res>
+    implements $InfoProductResponseCopyWith<$Res> {
+  _$InfoProductResponseCopyWithImpl(this._self, this._then);
+
+  final InfoProductResponse _self;
+  final $Res Function(InfoProductResponse) _then;
+
+/// Create a copy of InfoProductResponse
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? approximateCost = null,Object? collectionId = null,Object? collectionName = null,Object? created = null,Object? description = null,Object? id = null,Object? price = null,Object? title = null,Object? type = null,Object? typeCloses = null,Object? updated = null,}) {
+  return _then(_self.copyWith(
+approximateCost: null == approximateCost ? _self.approximateCost : approximateCost // ignore: cast_nullable_to_non_nullable
+as String,collectionId: null == collectionId ? _self.collectionId : collectionId // ignore: cast_nullable_to_non_nullable
+as String,collectionName: null == collectionName ? _self.collectionName : collectionName // ignore: cast_nullable_to_non_nullable
+as String,created: null == created ? _self.created : created // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,price: null == price ? _self.price : price // ignore: cast_nullable_to_non_nullable
+as double,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,typeCloses: null == typeCloses ? _self.typeCloses : typeCloses // ignore: cast_nullable_to_non_nullable
+as String,updated: null == updated ? _self.updated : updated // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [InfoProductResponse].
+extension InfoProductResponsePatterns on InfoProductResponse {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _InfoProductResponse value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _InfoProductResponse() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _InfoProductResponse value)  $default,){
+final _that = this;
+switch (_that) {
+case _InfoProductResponse():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _InfoProductResponse value)?  $default,){
+final _that = this;
+switch (_that) {
+case _InfoProductResponse() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String approximateCost,  String collectionId,  String collectionName,  String created,  String description,  String id,  double price,  String title,  String type,  String typeCloses,  String updated)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _InfoProductResponse() when $default != null:
+return $default(_that.approximateCost,_that.collectionId,_that.collectionName,_that.created,_that.description,_that.id,_that.price,_that.title,_that.type,_that.typeCloses,_that.updated);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String approximateCost,  String collectionId,  String collectionName,  String created,  String description,  String id,  double price,  String title,  String type,  String typeCloses,  String updated)  $default,) {final _that = this;
+switch (_that) {
+case _InfoProductResponse():
+return $default(_that.approximateCost,_that.collectionId,_that.collectionName,_that.created,_that.description,_that.id,_that.price,_that.title,_that.type,_that.typeCloses,_that.updated);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String approximateCost,  String collectionId,  String collectionName,  String created,  String description,  String id,  double price,  String title,  String type,  String typeCloses,  String updated)?  $default,) {final _that = this;
+switch (_that) {
+case _InfoProductResponse() when $default != null:
+return $default(_that.approximateCost,_that.collectionId,_that.collectionName,_that.created,_that.description,_that.id,_that.price,_that.title,_that.type,_that.typeCloses,_that.updated);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _InfoProductResponse implements InfoProductResponse {
+   _InfoProductResponse({required this.approximateCost, required this.collectionId, required this.collectionName, required this.created, required this.description, required this.id, required this.price, required this.title, required this.type, required this.typeCloses, required this.updated});
+  factory _InfoProductResponse.fromJson(Map<String, dynamic> json) => _$InfoProductResponseFromJson(json);
+
+@override final  String approximateCost;
+@override final  String collectionId;
+@override final  String collectionName;
+@override final  String created;
+@override final  String description;
+@override final  String id;
+@override final  double price;
+@override final  String title;
+@override final  String type;
+@override final  String typeCloses;
+@override final  String updated;
+
+/// Create a copy of InfoProductResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InfoProductResponseCopyWith<_InfoProductResponse> get copyWith => __$InfoProductResponseCopyWithImpl<_InfoProductResponse>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$InfoProductResponseToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InfoProductResponse&&(identical(other.approximateCost, approximateCost) || other.approximateCost == approximateCost)&&(identical(other.collectionId, collectionId) || other.collectionId == collectionId)&&(identical(other.collectionName, collectionName) || other.collectionName == collectionName)&&(identical(other.created, created) || other.created == created)&&(identical(other.description, description) || other.description == description)&&(identical(other.id, id) || other.id == id)&&(identical(other.price, price) || other.price == price)&&(identical(other.title, title) || other.title == title)&&(identical(other.type, type) || other.type == type)&&(identical(other.typeCloses, typeCloses) || other.typeCloses == typeCloses)&&(identical(other.updated, updated) || other.updated == updated));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,approximateCost,collectionId,collectionName,created,description,id,price,title,type,typeCloses,updated);
+
+@override
+String toString() {
+  return 'InfoProductResponse(approximateCost: $approximateCost, collectionId: $collectionId, collectionName: $collectionName, created: $created, description: $description, id: $id, price: $price, title: $title, type: $type, typeCloses: $typeCloses, updated: $updated)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$InfoProductResponseCopyWith<$Res> implements $InfoProductResponseCopyWith<$Res> {
+  factory _$InfoProductResponseCopyWith(_InfoProductResponse value, $Res Function(_InfoProductResponse) _then) = __$InfoProductResponseCopyWithImpl;
+@override @useResult
+$Res call({
+ String approximateCost, String collectionId, String collectionName, String created, String description, String id, double price, String title, String type, String typeCloses, String updated
+});
+
+
+
+
+}
+/// @nodoc
+class __$InfoProductResponseCopyWithImpl<$Res>
+    implements _$InfoProductResponseCopyWith<$Res> {
+  __$InfoProductResponseCopyWithImpl(this._self, this._then);
+
+  final _InfoProductResponse _self;
+  final $Res Function(_InfoProductResponse) _then;
+
+/// Create a copy of InfoProductResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? approximateCost = null,Object? collectionId = null,Object? collectionName = null,Object? created = null,Object? description = null,Object? id = null,Object? price = null,Object? title = null,Object? type = null,Object? typeCloses = null,Object? updated = null,}) {
+  return _then(_InfoProductResponse(
+approximateCost: null == approximateCost ? _self.approximateCost : approximateCost // ignore: cast_nullable_to_non_nullable
+as String,collectionId: null == collectionId ? _self.collectionId : collectionId // ignore: cast_nullable_to_non_nullable
+as String,collectionName: null == collectionName ? _self.collectionName : collectionName // ignore: cast_nullable_to_non_nullable
+as String,created: null == created ? _self.created : created // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,price: null == price ? _self.price : price // ignore: cast_nullable_to_non_nullable
+as double,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,typeCloses: null == typeCloses ? _self.typeCloses : typeCloses // ignore: cast_nullable_to_non_nullable
+as String,updated: null == updated ? _self.updated : updated // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 // dart format on

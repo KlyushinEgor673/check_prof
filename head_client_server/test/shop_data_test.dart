@@ -21,4 +21,9 @@ void main(){
     final response = await shopData.getNews();
     print('Акции успешно получены: ${response.items}');
   });
+
+  test('get info product', () async{
+    final response = await shopData.getInfoProduct('eh4qumppov3nud1');
+    print('Информация о продукте получена: $response');
+  });
 }

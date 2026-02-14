@@ -80,3 +80,34 @@ Map<String, dynamic> _$NewsResponseToJson(_NewsResponse instance) =>
       'totalItems': instance.totalItems,
       'totalPages': instance.totalPages,
     };
+
+_InfoProductResponse _$InfoProductResponseFromJson(Map<String, dynamic> json) =>
+    _InfoProductResponse(
+      approximateCost: json['approximateCost'] as String,
+      collectionId: json['collectionId'] as String,
+      collectionName: json['collectionName'] as String,
+      created: json['created'] as String,
+      description: json['description'] as String,
+      id: json['id'] as String,
+      price: (json['price'] as num).toDouble(),
+      title: json['title'] as String,
+      type: json['type'] as String,
+      typeCloses: json['typeCloses'] as String,
+      updated: json['updated'] as String,
+    );
+
+Map<String, dynamic> _$InfoProductResponseToJson(
+  _InfoProductResponse instance,
+) => <String, dynamic>{
+  'approximateCost': instance.approximateCost,
+  'collectionId': instance.collectionId,
+  'collectionName': instance.collectionName,
+  'created': instance.created,
+  'description': instance.description,
+  'id': instance.id,
+  'price': instance.price,
+  'title': instance.title,
+  'type': instance.type,
+  'typeCloses': instance.typeCloses,
+  'updated': instance.updated,
+};
